@@ -1,0 +1,59 @@
+name: Unit 2 Grading
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  grade:
+    name: Run Unit 2 tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out submission
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install test dependency
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes expect
+
+      - name: Run tests and report result
+        shell: bash
+        run: |
+          set +e
+          make test 2>&1 | tee test-output.log
+          test_status=${PIPESTATUS[0]}
+          set -e
+
+          if (( test_status == 0 )); then
+            result="Passed"
+          else
+            result="Failed"
+          fi
+
+          # Preserve a numeric grade if a future test harness reports one.
+          grade="$(
+            sed $'s/\033\\[[0-9;]*m//g' test-output.log |
+              grep -Eim1 '^[[:space:]]*(score|grade|points)[^[:digit:]]*[[:digit:]]+' || true
+          )"
+          grade=${grade//|/\\|}
+
+          {
+            echo "## Unit 2 grading"
+            echo
+            echo "| Check | Outcome |"
+            echo "| --- | --- |"
+            echo "| Tests | ${result} |"
+            if [[ -n "$grade" ]]; then
+              echo "| Reported grade | ${grade} |"
+            fi
+            echo
+            echo "Test command: \`make test\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          exit "$test_status"
