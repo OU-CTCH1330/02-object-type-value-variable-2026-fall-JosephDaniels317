@@ -22,7 +22,7 @@ Obviously output should depend on input, it should not be "hardcoded".
 - Compile executable. This can be done in number of ways, including running `Build Task` from gui (*Menu > Terminal > RunBuildTask*). Executable will be delivered in `bin` folder as `bin/class_roster`. You can execute this program with
 > root@786f2f9df995:/workspaces/02-object-type-value-variable# <span style="color:#0099ff">bin/class_roster</span>
 - Once satisfied with correctness of program run `Test` task (*Menu > Terminal > RunTask > TestWithMake*), make sure you pass.
-- Stage, commit and push changes. Make sure your code passes in GitHub actions.
+- Stage, commit and push changes. Open the repository's **Actions** tab, select **Unit 2 Grading**, and confirm the latest run passed. The run summary shows the test result and any numeric grade reported by the test harness.
 - If something goes off, please reach out early on, do NOT struggle. PR associated with this repo is a good place for QA.
 
 # Instructional demo 
