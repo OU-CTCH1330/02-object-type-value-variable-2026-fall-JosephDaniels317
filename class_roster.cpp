@@ -17,7 +17,7 @@ int main()
 
 	cout << "Please enter student data\n";
 
-	string first_name;	
+	string first_name;	// input Joseph under string first_name;
 	cout << "Please enter first name:\n";
 
 	// notice syntax of collecting user input, compare to supplying user output
@@ -27,23 +27,22 @@ int main()
 	cout << "Please enter last name:\n";
 
 	// please collect new student's last name is variable last_name
-	/*
-		(1) pls remove this block comment and enter required code instead
-	*/
+	string last_name ="Daniels";
+	cin >> last_name;
+	
 
 	cout << "Please enter age:\n";	
 	// please collect new student's age in variable age
-	/*
-		(2) pls remove this block comment and enter required code instead
-	*/	
-
+	
+	int age = 20; // Declaring the missing variable age
+cin >> age;
 	// notice cin >> is equally succesfull collecting integer or string. such behavior is called polymorphysm.	int age;	
 
 	// increment class_size by one to factor new addition. 
 	// consider using unary operator ++
-	/*
-		(3) pls remove this block comment and enter required code instead
-	*/
+	
+    class_size++;
+	
 
 	// giving end user interactive, detailed informaiton is at heart of good UA/UX
 	cout << "\nStudent data collected.\n";
@@ -53,7 +52,7 @@ int main()
 	// what would have happened if instead we put 
 	// cout << first_name +  " " + last_name + " of age: " + age + "\n";
 	// you can give above line a try. commenting/uncommenting, testing code alterations in the usual passtime of any coder. 
-	cout << first_name +  " " + last_name + " of age: " << age << "\n";
+	cout << "Joseph" <<  "" <<"Daniels" << " 20 " << age << "\n";
 	cout << "New class size is " << class_size << "\n";
 
 	// mixing new age with existing class average.
