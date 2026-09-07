@@ -17,7 +17,7 @@ int main()
 
 	cout << "Please enter student data\n";
 
-	string first_name;	// input Joseph under string first_name;
+	string first_name= "Joseph";	// input Joseph under string first_name;
 	cout << "Please enter first name:\n";
 
 	// notice syntax of collecting user input, compare to supplying user output
