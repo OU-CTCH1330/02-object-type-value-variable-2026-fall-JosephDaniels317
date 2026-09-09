@@ -51,7 +51,7 @@ cin >> age;
 	// what would have happened if instead we put 
 	// cout << first_name +  " " + last_name + " of age: " + age + "\n";
 	// you can give above line a try. commenting/uncommenting, testing code alterations in the usual passtime of any coder. 
-	cout << first_name << + "" << last_name << " of age: " << age << "\n";
+	cout << first_name << + " " << last_name << " of age: " << age << "\n";
 	cout << "New class size is " << class_size << "\n";
 
 	// mixing new age with existing class average.
